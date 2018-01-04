@@ -12,6 +12,7 @@ namespace AutoPros.Training
     class ExibeCombo
     {
         IWebDriver Browser;
+        IWebElement element;
         string Campo;
 
         public ExibeCombo(string Campo, IWebDriver Browser)
@@ -22,7 +23,7 @@ namespace AutoPros.Training
         
         public void ExbirCombo()
         {
-            IWebElement element = Browser.FindElement(By.Id(Campo));
+            element = Browser.FindElement(By.Id(Campo));
             ((IJavaScriptExecutor)Browser).
                 ExecuteScript("arguments[0].setAttribute('style', 'visibility: visible;');", element);
         }
